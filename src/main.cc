@@ -54,13 +54,18 @@ int main() {
             infile >> dimx;
             SparseMatrix sm(dimx, dimy);
 
-            for (std::int32_t i = 0; i < dimx * dimy; i++) {
+            while (infile) {
                 std::int32_t x = 0, y = 0, value = 0;
                 infile >> y;
                 infile >> x;
                 infile >> value;
+                if (infile.peek() == -1) {
+                    break;
+                }
                 sm.set_value(x, y, value);
+                infile.get();
             }
+            output_matrix(sm);
 
             output_matrix(sm.transpose(), outss);
 
