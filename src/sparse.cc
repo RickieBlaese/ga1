@@ -45,7 +45,7 @@ SparseMatrix::~SparseMatrix() {
 }
 
 void SparseMatrix::set_value(std::int32_t x, std::int32_t y, std::int32_t value) const {
-    if (x > this->x || y > this->y) { return; }
+    if (x >= this->x || x < 0 || y >= this->y || y < 0) { return; }
 
     RightHeaderNode *rloc = nullptr;
     DownHeaderNode *dloc = nullptr;
@@ -106,7 +106,7 @@ void SparseMatrix::set_value(std::int32_t x, std::int32_t y, std::int32_t value)
 
 
 std::optional<std::int32_t> SparseMatrix::get_value(std::int32_t x, std::int32_t y) const noexcept {
-    if (x > this->x || y > this->y) { return std::nullopt; }
+    if (x >= this->x || x < 0 || y >= this->y || y < 0) { return std::nullopt; }
 
     for (RightHeaderNode *r = rhead; r != nullptr; r = r->right) {
         if (r->value == x) {
