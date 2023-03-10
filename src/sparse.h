@@ -33,7 +33,7 @@ public:
 
     /* sliently fails if x and y are outside bounds */
     /* not noexcept since allocation could fail */
-    void set_value(std::int32_t x, std::int32_t y, std::int32_t value) const;
+    void set_value(std::int32_t x, std::int32_t y, std::int32_t value);
 
     std::optional<std::int32_t> get_value(std::int32_t x, std::int32_t y) const noexcept;
 

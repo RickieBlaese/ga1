@@ -44,7 +44,7 @@ SparseMatrix::~SparseMatrix() {
     delete dlast;
 }
 
-void SparseMatrix::set_value(std::int32_t x, std::int32_t y, std::int32_t value) const {
+void SparseMatrix::set_value(std::int32_t x, std::int32_t y, std::int32_t value) {
     if (x >= this->x || x < 0 || y >= this->y || y < 0) { return; }
 
     RightHeaderNode *rloc = nullptr;
