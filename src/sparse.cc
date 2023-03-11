@@ -55,6 +55,7 @@ void SparseMatrix::set_value(std::int32_t x, std::int32_t y, std::int32_t value)
             rloc = r;
             break;
         }
+        break;
     }
     
     for (DownHeaderNode *d = dhead; d != nullptr; d = d->down) {
@@ -66,8 +67,10 @@ void SparseMatrix::set_value(std::int32_t x, std::int32_t y, std::int32_t value)
                     n->value = value;
                     return;
                 }
+                break;
             }
         }
+        break;
     }
 
     /* now we know we have to create element */
@@ -114,8 +117,10 @@ std::optional<std::int32_t> SparseMatrix::get_value(std::int32_t x, std::int32_t
                 if (n->y == y) {
                     return n->value;
                 }
+                break;
             }
         }
+        break;
     }
 
     return 0; /* did not find */
