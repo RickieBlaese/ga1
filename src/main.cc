@@ -115,6 +115,7 @@ int main() {
     } catch (std::exception& e) {
         outfile << "Invalid Matrix Operation";
         outfile.close();
+        infile.close();
         return 1;
     }
 
